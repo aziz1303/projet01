@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undercover - Jeu</title>
+    <link rel="stylesheet" href="styles4.css"> <!-- Ajout du fichier CSS pour le chat -->
+</head>
+<body>
+    <header>
+        <img class="tree" src="https://www.onlygfx.com/wp-content/uploads/2018/01/tree-branch-silhouette-vol-3-2-1024x594.png" alt="im">
+        <h1>UNDERCOVER</h1>
+    </header>
+    <main>
+        <section id="game-info">
+            <div id="player-info">
+                <!-- Informations sur les joueurs (à mettre à jour dynamiquement) -->
+            </div>
+            <div id="word-info">
+                <!-- Informations sur les mots (à mettre à jour dynamiquement) -->
+            </div>
+        </section>
+        <section id="game-actions">
+            <h2>GAME ACTIONS : </h2>
+            <button id="reveal-word">REVEAL THE WORD</button>
+            <button id="eliminate-player">DELETE A PLAYER</button>
+            <div id="game-code-display"></div> <!-- Affichage du code de partie -->
+        </section>
+    </main>
+    <div class="app">
+        <div class="left-pane">
+            <!-- Contenu pour l'autre partie -->
+        </div>
+        <div class="right-pane">
+            <div class="screen join-screen active">
+                <div class="form">
+                    <h2>JOIN CHATROOM</h2>
+                    <div class="form-input">
+                        <label>USERNAME</label>
+                        <input type="text" id="username">
+                    </div>
+                    <div class="form-input">
+                        <button id="join-user">JOIN</button>
+                    </div>
+                </div>
+            </div>
+            <span>
+            <div class="screen chat-screen">
+                <div class="header">
+                    <div class="logo" style="color: black;">CHATROOM</div>
+                    <button id="exit-chat">EXIT</button>
+                </div>
+                <div class="messages"></div>
+                <div class="typebox">
+                    <input type="text" id="message-input">
+                    <button id="send-message">SEND</button>
+                </div>
+            </div>
+        </span>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script> <!-- Inclure Socket.io -->
+    <script src="game.js"></script>
+   
+</body>
+</html>

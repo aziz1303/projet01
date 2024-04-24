@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejoindre une partie - Undercover</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <header>
+        <img class="tree" src="https://www.onlygfx.com/wp-content/uploads/2018/01/tree-branch-silhouette-vol-3-2-1024x594.png" alt="im">
+        <h1>UNDERCOVER</h1>
+    </header>
+    <main>
+        <span>
+        <img src="https://images.squarespace-cdn.com/content/v1/6166cfc7f0f9c96fd146e6ca/1634503830277-JBO74HZ69MNNRIWV2XDF/undercover+game+Mr.White" alt="si">
+        <section class="options">
+
+            <label for="game-code"><h2>ROOM CODE :</h2></label>
+            <input type="text" id="game-code" placeholder="Entrez le code de la partie">
+            <label for="player-name"><h2>USERNAME :</h2></label>
+            <input type="text" id="player-name" placeholder="Entrez votre pseudo">
+            <br>
+            <button id="join-game-join">Rejoindre la partie</button>
+        </section>
+    </span>
+    </main>
+
+      
+    <script src="http://localhost:3002/javascript.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var joinGameButtonJoin = document.getElementById("join-game-join");
+
+            joinGameButtonJoin.addEventListener("click", function() {
+                // Récupérer le code de la partie et le pseudo entrés par l'utilisateur
+                var gameCode = document.getElementById("game-code").value;
+                var playerName = document.getElementById("player-name").value;
+
+                // Vérifier si les champs sont remplis
+                if (gameCode.trim() === "" || playerName.trim() === "") {
+                    alert("Veuillez remplir tous les champs.");
+                    return; // Arrêter l'exécution si un champ est vide
+                }
+
+                // Envoyer une requête POST au serveur pour vérifier le code de la partie
+                fetch('/join-game', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        gameCode: gameCode,
+                        playerName: playerName
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Vérifier si la réponse indique une réussite
+                    if (data.success) {
+                        // Rediriger vers la page de jeu avec le code de la partie dans l'URL
+                        window.location.href = 'game.html?gameCode=${gameCode}';
+                    } else {
+                        // Afficher un message d'erreur si la tentative de rejoindre la partie échoue
+                        console.error("Erreur lors de la tentative de rejoindre la partie :", data.message);
+                        alert("Erreur lors de la tentative de rejoindre la partie : " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("Erreur lors de la tentative de rejoindre la partie :", error);
+                    alert("Erreur lors de la tentative de rejoindre la partie : " + error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

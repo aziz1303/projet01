@@ -1,0 +1,53 @@
+button{
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+  }
+  body{
+    font-family:Arial,sans serif;
+    margin:0;
+    padding:0;
+    background-image: url("https://www.bhmpics.com/downloads/blue-forest-Wallpapers/14.dark-blue-aesthetic-forest-objipbggm1bl0xjg.jpg");
+
+    
+}
+h1{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 600%;
+    padding-top: 3%;
+
+
+}
+h2{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 200%;}
+    button{
+        display:block;
+        width:200px;
+        padding:10px;
+        margin:10px auto;
+        border:none;
+        background-color:#ffaa00;
+        color:#fff;
+        font-size:16px;
+        cursor:pointer;
+    }
+    button:hover{
+        background-color:#b30000;
+    }
+    section{display: flex;
+        flex-direction: column;
+        padding-left: 4%;
+        padding-top: 0%;
+        }   
+        span{display: flex;}
+        header{display: flex;}
+        .tree{width: 35%;
+            height:35% ;}
+            input{ display:block;
+                width:200px;
+                padding:10px;
+                margin:10px auto;
+                border:none;
+                font-size:16px;
+                cursor:pointer;}   

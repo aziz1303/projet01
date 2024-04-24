@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une partie - Undercover</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+        
+   
+    <main>
+        <span class="head">
+        <img class="tree" src="https://www.onlygfx.com/wp-content/uploads/2018/01/tree-branch-silhouette-vol-3-2-1024x594.png" alt="im">
+        <h1>CREATE A ROOM</h1>
+    </span>
+        <span>
+        
+           
+            
+           
+        <section id="player-section">
+            <h2>NUMBER OF PLAYERS : </h2>
+            <input type="number" id="num-players" min="3" max="10" placeholder="Nombre de joueurs" required>
+       
+            <h2>USERNAME : </h2>
+            <div id="player-names"></div>
+            <button id="add-player">ADD PLAYER</button>
+            <button id="create-game-create">CREATE A ROOM</button>
+        </section>
+        <img class="detective"  src="https://images.squarespace-cdn.com/content/v1/6166cfc7f0f9c96fd146e6ca/1634503797387-X2TXODCKXUM3R3I5RRKY/rules_undercover.png" alt="detective">
+       
+    </span>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    var addPlayerButton = document.getElementById("add-player");
+    var playerNamesContainer = document.getElementById("player-names");
+
+    addPlayerButton.addEventListener("click", function() {
+        var numPlayersInput = document.getElementById("num-players");
+        var numPlayers = parseInt(numPlayersInput.value);
+        var createGameButtonCreate = document.getElementById("create-game-create");
+         // Ajouter un écouteur d'événements de clic au bouton de création de partie sur la page create-game.html
+    createGameButtonCreate.addEventListener("click", function() {
+        // Rediriger l'utilisateur vers la page de jeu
+        window.location.href = 'game.html';
+    });
+
+
+        // Effacer le contenu précédent du conteneur de noms de joueurs
+        playerNamesContainer.innerHTML = "";
+
+        // Créer un champ de saisie pour chaque joueur
+        for (var i = 1; i <= numPlayers; i++) {
+            var playerDiv = document.createElement("div");
+            var input = document.createElement("input");
+            input.type = "text";
+            input.placeholder = "Nom du joueur " + i;
+            input.name = "player-name-" + i; // Nom unique pour chaque champ
+            playerDiv.appendChild(input);
+            playerNamesContainer.appendChild(playerDiv);
+        }
+    });
+});
+    </script>
+</body>
+</html>
